@@ -28,7 +28,7 @@ The test classes demonstrate how to validate HTTP 4xx and 5xx error codes.
 ## Running the Tests
 
 - Clone the repository
-git clone https://github.com/YOUR_USERNAME/APITests.git
+git clone https://github.com/dogandagistanli/restassured-common-status-tests
 
 - Change into the project directory
 cd APITests
