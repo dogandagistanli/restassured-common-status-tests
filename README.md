@@ -21,7 +21,9 @@ The test classes demonstrate how to validate HTTP 4xx and 5xx error codes.
 - A local Mockoon server must be running on **localhost:3000**.
     - Make sure Mockoon is properly configured with the endpoints required by the tests (e.g., **DELETE**, **POST**, etc.).
     - If these endpoints are missing or incorrectly set, some tests may fail or return unexpected results.
-
+- Mockoon Interface
+  - The interface of Mockoon is demonstrated in the image below:
+   ![Mockoon Interface](mockoonpost.PNG)
 
 ---
 
