@@ -9,14 +9,9 @@ import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class TestTwoHundreds {
+public class TestTwoHundreds extends BeforeClassJson {
 
     private static final Logger log = LoggerFactory.getLogger(TestTwoHundreds.class);
-
-    @BeforeClass
-    public void setup() {
-        RestAssured.baseURI = "https://jsonplaceholder.typicode.com";
-    }
 
     @Test
     public void shouldReturn200() {

@@ -6,12 +6,7 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 
 // In this class, we focus on bad requests, as the 4xx status codes represent client-side errors.
-public class TestFourHundreds {
-
-    @BeforeClass
-    public void setup() {
-        RestAssured.baseURI = "https://jsonplaceholder.typicode.com";
-    }
+public class TestFourHundreds extends BeforeClassJson {
 
     @Test
     public void shouldReturn400() {

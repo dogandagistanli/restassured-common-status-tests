@@ -5,12 +5,8 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class TestFiveHundred {
-
-    @BeforeClass
-    public void setup() {
-        RestAssured.baseURI = "https://jsonplaceholder.typicode.com";
-    }
+public class TestFiveHundred extends BeforeClassJson {
+    
 
     @Test
     public void shouldReturn500() {
