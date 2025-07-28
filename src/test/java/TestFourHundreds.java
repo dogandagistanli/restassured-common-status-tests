@@ -1,30 +1,20 @@
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
-import static io.restassured.RestAssured.get;
-
-
 
 // In this class, we focus on bad requests, as the 4xx status codes represent client-side errors.
 public class TestFourHundreds {
 
-
-
-    @BeforeAll
-    public static void setup() {
+    @BeforeClass
+    public void setup() {
         RestAssured.baseURI = "https://jsonplaceholder.typicode.com";
-
     }
 
-
     @Test
-    public void shouldReturn400(){
+    public void shouldReturn400() {
         // Used Mockoon to simulate 400 responses because jsonplaceholder does not return errors for certain conditions.
 
         Response response = given()
@@ -34,11 +24,10 @@ public class TestFourHundreds {
                 .log().all()
                 .statusCode(400)
                 .extract().response();
-
     }
 
     @Test
-    public void shouldReturn404(){
+    public void shouldReturn404() {
 
         Response response = given()
                 .header("Content-type", "application/json")
@@ -51,10 +40,5 @@ public class TestFourHundreds {
                 .extract().response();
 
         System.out.println("\nStatus code: " + response.getStatusCode());
-
-
-
-
     }
-
 }
