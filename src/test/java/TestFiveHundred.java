@@ -1,24 +1,15 @@
 import io.restassured.RestAssured;
-import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
-import static io.restassured.RestAssured.get;
-
-
 
 public class TestFiveHundred {
 
-
-    @BeforeAll
-    public static void setup() {
+    @BeforeClass
+    public void setup() {
         RestAssured.baseURI = "https://jsonplaceholder.typicode.com";
-
     }
 
     @Test
@@ -32,11 +23,6 @@ public class TestFiveHundred {
                 .then()
                 .statusCode(500)
                 .extract().response();
-
-
-
     }
-
-
 
 }

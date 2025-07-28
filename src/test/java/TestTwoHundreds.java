@@ -1,23 +1,21 @@
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
+import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
-import static io.restassured.RestAssured.get;
-
 
 public class TestTwoHundreds {
 
     private static final Logger log = LoggerFactory.getLogger(TestTwoHundreds.class);
 
-    @BeforeAll
-    public static void setup() {
+    @BeforeClass
+    public void setup() {
         RestAssured.baseURI = "https://jsonplaceholder.typicode.com";
-
     }
 
     @Test
@@ -33,10 +31,10 @@ public class TestTwoHundreds {
                 assertThat().
                 body("id", equalTo(1))
                 .extract().response();
+
         Response response = get("https://jsonplaceholder.typicode.com/posts/1");
         // We can capture the response this way to perform further validations or processing or the way in the shouldReturn201.
         System.out.println("Status code: " + response.getStatusCode());
-
     }
 
     @Test
@@ -55,7 +53,6 @@ public class TestTwoHundreds {
                 .extract().response();
 
         System.out.println("\nStatus code: " + response.getStatusCode());
-
     }
 
     @Test
@@ -77,8 +74,7 @@ public class TestTwoHundreds {
                 .extract().response();
 
         System.out.println("\nStatus code: " + response.getStatusCode());
-
-        }
+    }
 
     @Test
     public void shouldReturn204Delete() {
@@ -96,17 +92,4 @@ public class TestTwoHundreds {
         System.out.println("\nStatus code: " + response.getStatusCode());
     }
 
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
